@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Loading = styled.div`
   color: #fff;
@@ -41,6 +41,14 @@ export const Owner = styled.header`
   }
 `;
 
+export const States = styled.div`
+  border: 2px solid #eee;
+  margin-top: 10px;
+  padding: 0 20%;
+  display: flex;
+  justify-content: space-between;
+`;
+
 /* As 3 primeiras linhas é um hack para colocar uma borda no meio da
        distância entre dois elementos */
 export const IssueList = styled.ul`
@@ -51,6 +59,10 @@ export const IssueList = styled.ul`
 
   li {
     display: flex;
+    /*
+    flex-direction: row;
+    align-items: center;
+    */
     padding: 15px 10px;
     border: 2px solid #eee;
     border-radius: 4px;
@@ -66,6 +78,7 @@ export const IssueList = styled.ul`
     height: 36px;
     border-radius: 50%;
     border: 2px solid #eee;
+    margin-left: 10px;
   }
 
   div {
@@ -102,5 +115,39 @@ export const IssueList = styled.ul`
       font-size: 12px;
       color: #999;
     }
+  }
+`;
+
+export const StateButton = styled.button`
+  border-style: none;
+  ${(props) =>
+    props.active
+      ? css`
+          padding: 0 2px;
+          cursor: not-allowed;
+          font-weight: bold;
+        `
+      : css`
+          padding: 0 2px;
+          opacity: 0.6;
+        `}
+
+  :hover {
+    font-weight: bold;
+    opacity: 1;
+  }
+`;
+
+export const LinkList = styled.div`
+  border: 2px solid #eee;
+  margin-top: 10px;
+  padding: 0 20%;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    color: #7159c1;
+    border: none !important;
+    background-color: white !important;
   }
 `;

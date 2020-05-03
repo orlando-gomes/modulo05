@@ -32,7 +32,7 @@ const rotate = keyframes`
 /* O .attrs é para passar ATRIBUTOS diretamente pelo CSS */
 export const SubmitButton = styled.button.attrs((props) => ({
   type: 'submit',
-  disabled: props.loading,
+  disabled: Boolean(props.loading),
 }))`
   background: #7159c1;
   border: 0;
@@ -65,7 +65,7 @@ export const SubmitButton = styled.button.attrs((props) => ({
        é falsa, o segunda não executa.
    */
   ${(props) =>
-    props.loading &&
+    Boolean(props.loading) &&
     css`
       svg {
         animation: ${rotate} 2s linear infinite;
@@ -94,5 +94,31 @@ export const List = styled.ul`
       color: #7159c1;
       text-decoration: none;
     }
+  }
+`;
+
+export const Span = styled.span`
+  ${(props) =>
+    Boolean(props.error) &&
+    css`
+      display: flex;
+      border: 1px solid #ff8888;
+      border-radius: 4px;
+      background: #ffaaaa;
+      padding: 0 2px;
+    `}
+`;
+
+export const LinkList = styled.div`
+  border: 2px solid #eee;
+  margin-top: 10px;
+  padding: 0 20%;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    color: #7159c1;
+    border: none !important;
+    background-color: white !important;
   }
 `;
